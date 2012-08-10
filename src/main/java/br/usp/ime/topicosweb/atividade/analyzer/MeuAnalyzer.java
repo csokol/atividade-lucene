@@ -12,7 +12,6 @@ public class MeuAnalyzer extends Analyzer{
     @Override
     public TokenStream tokenStream(String fieldName, Reader reader) {
         Tokenizer tokenizer = new StandardTokenizer(reader);
-        //LowerCaseFilter lowerCaseFilter = new LowerCaseFilter(tokenizer);
         return tokenizer;
     }
 
