@@ -1,0 +1,17 @@
+<project name="seminario" default="resolve" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property file="build.properties" />
+
+	<!-- resolve dependencies -->
+	<target name="resolve" description="--> retrieve dependencies with ivy">
+		<path id="ivy.lib.path">
+			<pathelement location="${ivy.jar.file}" />
+		</path>
+		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+
+		<delete dir="${libs.dir}" includes="**/*.*" />
+		<ivy:settings file="${ivy.file}" />
+		<ivy:retrieve pattern="lib/[artifact]-[revision](-[classifier]).[ext]" sync="true" />
+	</target>
+
+</project>
